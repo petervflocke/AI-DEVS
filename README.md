@@ -37,10 +37,10 @@ setx OPENAI_API_KEY "your_openai_api_key_here"
 The name of each python file in the repository reflects the task (zadanie) name, it is designed to solve. To run a file, simply use the following command in your terminal or command prompt:
 
 ```bash
-python task_name.py
+python task.py
 ```
 
-Replace task_name.py with the name of the Python file you want to run.
+Replace task.py with the name of the Python file you want to run.
 
 
 ## Optional Logging Parameter
@@ -48,7 +48,7 @@ Replace task_name.py with the name of the Python file you want to run.
 Each module accepts an optional parameter, either DEBUG or INFO, to enable logging. To use this feature, pass the desired logging level as a command-line argument:
 
 ```bash
-python task_name.py DEBUG
+python task.py DEBUG
 ```
 
 This will enable logging at the specified level (either DEBUG or INFO) while the script is running.
