@@ -1,0 +1,24 @@
+02. Spraw, aby ChatGPT przypisał odpowiednią kategorię do zadania: dom/praca/inne.
+Odpowiedź zwróć w formacie: {"category":"xyz"}
+
+
+Kwalifikuj podany tekst do jednej z nastepujacych kategorii:
+
+dom
+praca
+inne
+
+Odpowiedz wygenurj w formacie JSON:
+{"category":"kategoria"}
+
+
+
+
+03. Przygotuj jeden wielki plik JSON zawierający tytuły (title) i autorów (author) do każdej z książek
+
+
+Dopasuj liste tytulow ksiazek do ich autorow. 
+
+Zwroc wynik analizy jako jeden plik JSON. Uzyj tego formatu 
+[ {"titel" : "tytul", "author" : "autor"},
+]
