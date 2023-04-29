@@ -13,7 +13,7 @@ import openai
 # conduct split of the gpt response into the expected list in python together with some simple syntax checking
 
 system_text = """
-You are a blog writer. Please write a blog post for the provided outline. Outline consist of list of chapters to be reflect in the post. 
+You are a blog writer. Please write a blog post for the provided outline. Outline consists of list of chapters to be reflect in the post. 
 Each chapter starts with the string "###" and the the chapter title.
 
 List of topics follows this data structure:
