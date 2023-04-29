@@ -6,6 +6,18 @@ import logging
 import openai
 
 def chat_completion(input_text, question_text):
+    """
+    This function takes two strings as input and returns a string as output.
+
+    Parameters:
+    input_text (str): The text to be used as input for the chatbot.
+    question_text (str): The question to be asked to the chatbot.
+
+    Returns:
+    message (str): The response from the chatbot.
+
+    The chat_completion() function takes two strings as input, input_text and question_text. It then uses the OpenAI ChatCompletion API to generate a response to the question based on the input_text. The response is returned as a string.
+    """
     system_text = "### BAZADANYCH" + "\n" + input_text +"/BAZADANYCH" + "\n"
     question_text = 'Use BAZADANYCH to answer this question:' + question_text + \
                 'Answer in following JSON format {"output": answer}. If there is no such a person return only one word "BAZINGA"'
@@ -16,7 +28,7 @@ def chat_completion(input_text, question_text):
             {"role": "system", "content": "You are a helpful assistant.\n" + system_text},
             {"role": "user", "content": question_text}
         ]
-)
+    )
 
     message = response['choices'][0]['message']['content']
     return message
@@ -35,8 +47,6 @@ else:
     logging.disable(sys.maxsize)
 
 TASKNAME = os.path.splitext(os.path.basename(__file__))[0]
-logging.info(f"Task name: {TASKNAME}")
-
 KEY = os.environ.get('AIDEVS')
 OPENAI_API_KEY = os.environ.get('OPENAI_API_KEY')
 
@@ -51,8 +61,9 @@ if not OPENAI_API_KEY:
     raise ValueError("openAI API KEY cannot be empty, setup environment variable OPENAI_API_KEY")
 if not URL_AI_DEVS:
     raise ValueError("URL for AI_devs cannot be empty, setup environment variable URLAIDEVS")
+logging.debug('Key:%s; TaskName:%s', KEY, TASKNAME)
 
-logging.debug(f"Key: {KEY}; TaskName:{TASKNAME}")
+openai.api_key = OPENAI_API_KEY
 
 data = {
     "apikey": f"{KEY}",
@@ -60,16 +71,15 @@ data = {
 
 response = requests.post(URL_AI_DEVS+TOKEN+TASKNAME, json=data)
 json_response = response.json()
-logging.info(f"Received json: {json_response}")
-token = json_response.get("token")
+logging.info('Received json: %s', json_response)
 
+token = json_response.get("token")
 response = requests.get(URL_AI_DEVS+TASK+token)
 json_response = response.json()
-logging.info(f"Received json: {json_response}")
+logging.info('Received json: %s', json_response)
+
 input = json_response.get("input")
 question = json_response.get("question")
-
-openai.api_key = OPENAI_API_KEY
 
 output = ""
 max_items = 10
@@ -92,6 +102,7 @@ if output_value != "BAZINGA":
     data = {
        "answer":output_value
     }
+    #sys.exit(1)
     response = requests.post(URL_AI_DEVS+ANSWER+token, json=data)
     json_response = response.json()
     print (json_response)

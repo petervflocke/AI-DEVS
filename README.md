@@ -45,11 +45,11 @@ Replace task.py with the name of the Python file you want to run.
 
 ## Optional Logging Parameter
 
-Each module accepts an optional parameter, either DEBUG or INFO, to enable logging. To use this feature, pass the desired logging level as a command-line argument:
+Each module accepts an optional parameter, either debug or info, to enable logging. To use this feature, pass the desired logging level as a command-line argument:
 
 ```bash
-python task.py DEBUG
+python task.py debug
 ```
 
-This will enable logging at the specified level (either DEBUG or INFO) while the script is running.
-Empty paramter disables logging 
+This will enable logging at the specified level (either debug or info) while the script is running.
+Empty parameter disables logging 
