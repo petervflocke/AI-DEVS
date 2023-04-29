@@ -29,7 +29,7 @@ ANSWER = "/answer/"
 if not KEY:
     raise ValueError("API KEY cannot be empty, setup environment variable AIDEVS")
 if not URL_AI_DEVS:
-    raise ValueError("URL for AI_devs cannot be empty, setup environment variable URLAIDEVS")
+    raise ValueError("URL for AI_devs cannot be empty, setup environment variable URL_AI_DEVS")
 
 logging.debug(f"Key: {KEY}\nTaskName:{TASKNAME}")
 

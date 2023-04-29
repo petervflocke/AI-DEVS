@@ -53,7 +53,7 @@ if not KEY:
 if not OPENAI_API_KEY:
     raise ValueError("openAI API KEY cannot be empty, setup environment variable OPENAI_API_KEY")
 if not URL_AI_DEVS:
-    raise ValueError("URL for AI_devs cannot be empty, setup environment variable URLAIDEVS")
+    raise ValueError("URL for AI_devs cannot be empty, setup environment variable URL_AI_DEVS")
 
 logging.debug(f"Key: {KEY}; TaskName:{TASKNAME}")
 
