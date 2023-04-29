@@ -12,6 +12,7 @@ import openai
 # request to split the gpt response to chapters divided by ### characters
 # conduct split of the gpt response into the expected list in python together with some simple syntax checking
 
+#openAI SYSTEM
 system_text = """
 You are a blog writer. Please write a blog post for the provided outline. Outline consists of list of chapters to be reflected in the post. 
 Each chapter starts with the string "###" and the the chapter title.
@@ -19,7 +20,10 @@ Each chapter starts with the string "###" and the the chapter title.
 List of topics follows this data structure:
 Topics=['topic 1', 'topic 2', 'topic 3', ...]
 """
+#Chapter's splitter, assuming that GPT follows my prompt
 SPLITTER = "###"
+
+#openAI user text, the rest wll be concatenated based on the task's request
 user_text = "Topics="
 
 
