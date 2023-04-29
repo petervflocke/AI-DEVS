@@ -75,10 +75,10 @@ def split_string(string, div, expected_len=0):
         raise TypeError("Both arguments should be a string.")
 
     substrings = string.split(div)
-    logging.info("Splitted text: %s", substrings)
+    logging.debug("Splitted text: %s", substrings)
     if substrings[0] == "" or substrings[0] == "\n":
         substrings.pop(0)
-        logging.info("Removed first empty entry")
+        logging.debug("Removed first empty entry")
     if expected_len != 0 and len(substrings) != expected_len:
         raise ValueError(
             f"Expected length of the list: {expected_len} does not match current one: {len(substrings)}."
@@ -142,16 +142,17 @@ logging.info("Received json: %s", json_response)
 blog = json_response.get("blog")
 user_text += json.dumps(blog)
 
-print(f"Processing {len(blog)} chapters...")
+logging.info("Processing: %s chapters...", len(blog))
 start_time = time.time()
 answer = chat_completion(system_text, user_text)
 end_time = time.time()
 duration = end_time - start_time
-print(f"Done after {duration:.2f} seconds")
+logging.info("Done after %s seconds", "{:.0f}".format(duration))
 answer = split_string(answer, SPLITTER, len(blog))
+logging.info("Answer to be sent: %s", answer)
 data = {"answer": answer}
 
-# sys.exit(1)
+#sys.exit(1)
 response = requests.post(URL_AI_DEVS + ANSWER + token, json=data)
 json_response = response.json()
 print(json_response)
