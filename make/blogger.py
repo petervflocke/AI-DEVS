@@ -189,7 +189,7 @@ answer = split_string(answer, SPLITTER, len(blog))
 logging.info("Answer to be sent: %s", answer)
 data = {"answer": answer}
 
-#sys.exit(1)
+sys.exit(1)
 response = requests.post(URL_AI_DEVS + ANSWER + token, json=data)
 json_response = response.json()
 print(json_response)

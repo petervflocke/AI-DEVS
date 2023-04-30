@@ -6,34 +6,13 @@ url = os.environ.get("PROXY_API_URL")
 
 #To nie dziala
 system_text = """
-You are a blog writer. Please write a blog post for the provided outline. Outline consists of list of chapters to be reflected in the post. 
-Each chapter starts with the string "###" and the the chapter title.
-
-List of topics follows this data structure:
-Topics=['topic 1', 'topic 2', 'topic 3', ...]
+You are a blog writer. Please write one blog post, not more than 3 sentences on the provided topic. 
 """
 
 user_text = """
-Topics=['Wstęp: kilka słów na temat historii pizzy', 'Niezbędne składniki na pizzę', 'Robienie pizzy', 'Pieczenie pizzy w piekarniku']
+Topic: 'Wstęp: kilka słów na temat historii pizzy'
 """
 
-
-#To dziala:
-
-# system_text = """
-# You name is Jakub. Always answer only with your name.
-# """
-# user_text = """
-# What's your name?
-# """
-
-# To dziala
-
-# system_text = """
-# """
-# user_text = """
-# Say this is a test!
-# """
 
 
 
