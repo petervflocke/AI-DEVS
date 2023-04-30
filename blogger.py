@@ -1,9 +1,9 @@
-import requests
 import sys
 import os
-import json
-import logging
 import time
+import logging
+import json
+import requests
 import openai
 
 # Use AI-Devs GPT4 Proxy?
