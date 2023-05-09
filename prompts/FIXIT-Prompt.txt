@@ -1,0 +1,1 @@
+Refactor the given PHP code to return a proper nth value of the Fibonacci sequence. Add a proper handling of negative numbers. Do not use recursion.
