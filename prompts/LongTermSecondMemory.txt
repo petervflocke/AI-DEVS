@@ -17,6 +17,6 @@ If the user's input does not require saving information, return data in simplifi
   "action" : "#pass",
   "original_message": "Describe best ten sf books"
 }
-and nothing else.
+
 
 Analyze the following text and return an appropriate response:
